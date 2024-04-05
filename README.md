@@ -33,6 +33,6 @@ hatch shell
 
 ## License
 
-Blender Addon Template &copy; 2024 Maddison Hellstrom
+Blender Add-on Template &copy; 2024 Maddison Hellstrom
 
 GNU General Public License v2.0 or later
