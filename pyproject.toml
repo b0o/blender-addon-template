@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "my_addon"
+dynamic = ["version"]
+description = 'Short description of my add-on'
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-2.0-or-later"
+keywords = []
+authors = [
+  { name = "Author Name", email = "authorname@example.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/org/repo"
+Issues = "https://github.com/org/repo/issues"
+Source = "https://github.com/org/repo"
+
+[tool.hatch.version]
+source = "code"
+path = "my_addon/__init__.py"
+expression = "'.'.join([str(v) for v in bl_info['version']])"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "fake-bpy-module-4.0",
+
+  # for blender.nvim and blender_vscode
+  "debugpy",
+  "flask",
+  "requests",
+  "pynvim",
+
+  "pytest",
+  "coverage[toml]>=6.5",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.11"]
+
+[tool.hatch.envs.types]
+dependencies = [
+  "mypy>=1.0.0",
+]
