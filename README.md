@@ -5,7 +5,7 @@ This is a template for creating Blender add-ons. It uses hatch to manage depende
 ## Instructions
 
 1. Change names and info in the following files (don't forget the copyright hearders):
-  - `pyproject.toml`
+  - `pyproject.toml` (including the path in the `[tool.hatch.version]` section)
   - `my_addon/__init__.py`
   - `my_addon/auto_load.py` (copyright header only)
   - `my_addon/panel_mypanel.py`
@@ -19,9 +19,9 @@ pip install hatch
 hatch shell
 ```
 
-4. Open your editor and start developing your add-on.
-  - For Neovim, the `blender.nvim` plugin is recommended.
-  - For VSCode, the `blender_vscode` extension is recommended.
+4. Open your editor and start developing your add-on. (Preferably, start your editor from inside of the virtualenv shell)
+  - For Neovim, the [`blender.nvim`](https://github.com/b0o/blender.nvim) plugin is recommended.
+  - For VSCode, the [`blender_vscode`](https://github.com/JacquesLucke/blender_vscode) extension is recommended.
 
 5. Build the add-on by running the following command:
 
