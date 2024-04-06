@@ -1,6 +1,6 @@
 # Blender Add-on Template
 
-This is a template for creating Blender add-ons. It uses hatch to manage dependencies and virtual environments.
+This is a template for creating Blender add-ons. It uses [Hatch](https://hatch.pypa.io/) to manage dependencies and virtual environments.
 
 ## Instructions
 
