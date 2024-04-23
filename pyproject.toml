@@ -34,16 +34,17 @@ expression = "'.'.join([str(v) for v in bl_info['version']])"
 
 [tool.hatch.envs.default]
 dependencies = [
+  # Type hints and code completion for Blender's bpy module
   "fake-bpy-module-4.0",
 
-  # for blender.nvim and blender_vscode
-  "debugpy",
-  "flask",
-  "requests",
+  # for blender.nvim:
   "pynvim",
+  "debugpy", # Optional, for debugging
 
-  "pytest",
-  "coverage[toml]>=6.5",
+  # for blender_vscode (uncomment if needed)
+  # "flask",
+  # "requests",
+  # "debugpy",
 ]
 
 [[tool.hatch.envs.all.matrix]]
