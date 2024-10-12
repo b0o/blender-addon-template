@@ -1,13 +1,9 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
 [project]
 name = "my_addon"
 dynamic = ["version"]
 description = 'Short description of my add-on'
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = "==3.12.*"
 license = "GPL-2.0-or-later"
 keywords = []
 authors = [
@@ -27,30 +23,26 @@ Documentation = "https://github.com/org/repo"
 Issues = "https://github.com/org/repo/issues"
 Source = "https://github.com/org/repo"
 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [tool.hatch.version]
 source = "code"
 path = "my_addon/__init__.py"
 expression = "'.'.join([str(v) for v in bl_info['version']])"
 
-[tool.hatch.envs.default]
-dependencies = [
-  # Type hints and code completion for Blender's bpy module
-  "fake-bpy-module-4.0",
+[tool.rye]
+managed = true
+dev-dependencies = [
+  "fake-bpy-module-4.1",
 
   # for blender.nvim:
   "pynvim",
   "debugpy", # Optional, for debugging
 
-  # for blender_vscode (uncomment if needed)
+  # for blender_vscode
   # "flask",
   # "requests",
   # "debugpy",
-]
-
-[[tool.hatch.envs.all.matrix]]
-python = ["3.11"]
-
-[tool.hatch.envs.types]
-dependencies = [
-  "mypy>=1.0.0",
 ]
