@@ -23,3 +23,4 @@ __pycache__/
 compile_commands.json
 .DS_Store
 .gdb_history
+dist

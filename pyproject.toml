@@ -32,7 +32,7 @@ source = "code"
 path = "my_addon/__init__.py"
 expression = "'.'.join([str(v) for v in bl_info['version']])"
 
-[tool.rye]
+[tool.uv]
 managed = true
 dev-dependencies = [
   "fake-bpy-module-4.1",
@@ -45,4 +45,17 @@ dev-dependencies = [
   # "flask",
   # "requests",
   # "debugpy",
+
+  # For building the add-on
+  "hatchling",
 ]
+
+# These basedpyright settings work better for Blender add-ons.
+[tool.basedpyright]
+include = ["my_addon"]
+exclude = ["**/__pycache__"]
+# stubPath = "stubs"
+reportUnusedCallResult = "none"
+reportImplicitOverride = "none"
+reportInvalidTypeForm = "none"
+typeCheckingMode = "standard" # off | basic | standard | strict | all

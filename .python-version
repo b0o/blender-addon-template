@@ -1,8 +1,1 @@
-# Note: when using rye to manage the virtual environment, it defaults to using its own
-# version of Python. When using blender.nvim for development, if the rye virtualenv is
-# active, using rye's version of Python will cause issues. To avoid this, register
-# a custom rye toolchain pointing to the version of Python that Blender uses.
-# e.g. `rye toolchain register --name blender-cpython /usr/bin/python3.12`.
-# To update this .python-version file, run `rye pin --relaxed blender-cpython@3.12`.
-
-blender-cpython@3.12
+3.12
