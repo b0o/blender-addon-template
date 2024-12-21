@@ -40,6 +40,10 @@ When you are ready to package your add-on for distribution, run the following co
 
 This will create a zip file in the `dist` directory which users can install in Blender.
 
+## Notes
+
+- The `my_addon/auto_load.py` file is a helper which automatically discovers, registers, and unregisters your add-on classes. If you prefer a simpler approach, you can remove this file and manually register/unregister your add-on classes in the `register` and `unregister` functions in `my_addon/__init__.py`.
+
 ## License
 
 Blender Add-on Template &copy; 2024 Maddison Hellstrom
