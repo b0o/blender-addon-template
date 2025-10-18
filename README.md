@@ -35,7 +35,7 @@ source .venv/bin/activate
 When you are ready to package your add-on for distribution, run the following command:
 
 ```bash
-./scripts/build.sh
+./scripts/build_addon.sh
 ```
 
 This will create a zip file in the `dist` directory which users can install in Blender.
