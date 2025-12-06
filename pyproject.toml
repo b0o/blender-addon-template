@@ -35,9 +35,11 @@ expression = "'.'.join([str(v) for v in bl_info['version']])"
 [tool.uv]
 managed = true
 dev-dependencies = [
+  # adds type stubs for the bpy module for LSP support in your editor
+  # see https://github.com/nutti/fake-bpy-module
   "fake-bpy-module-4.1",
 
-  # for blender.nvim:
+  # for blender.nvim
   "pynvim",
   "debugpy", # Optional, for debugging
 
