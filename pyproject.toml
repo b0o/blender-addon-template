@@ -37,7 +37,7 @@ managed = true
 dev-dependencies = [
   # adds type stubs for the bpy module for LSP support in your editor
   # see https://github.com/nutti/fake-bpy-module
-  "fake-bpy-module-4.1",
+  "fake-bpy-module-latest",
 
   # for blender.nvim
   "pynvim",
