@@ -1,14 +1,13 @@
 [project]
 name = "my_addon"
-dynamic = ["version"]
-description = 'Short description of my add-on'
+description = "Short description of my add-on"
 readme = "README.md"
 requires-python = "==3.12.*"
-license = "GPL-2.0-or-later"
-keywords = []
+license = "GPL-2.0-or-later"  # See https://www.blender.org/about/license/
 authors = [
   { name = "Author Name", email = "authorname@example.com" },
 ]
+keywords = []
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python",
@@ -17,16 +16,59 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = []
+# Extracts the version from my_addon/__init__.py - see the [tool.hatch.version] section below
+dynamic = ["version"]
 
 [project.urls]
 Documentation = "https://github.com/org/repo"
 Issues = "https://github.com/org/repo/issues"
 Source = "https://github.com/org/repo"
 
+[dependency-groups]
+dev = [
+  # Optional, for interactive debugging via blender.nvim or blender_vscode
+  "debugpy",
+  #
+  # Adds type stubs for the bpy module for LSP support in your editor
+  # see https://github.com/nutti/fake-bpy-module
+  "fake-bpy-module-latest",
+  #
+  # For blender_vscode
+  # "flask",
+  # "requests",
+  # "debugpy",
+  #
+  # For building the add-on
+  "hatchling",
+  #
+  # for blender.nvim
+  "pynvim",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+# These basedpyright settings work better for Blender add-ons.
+# If you prefer to use pyright, change this to [tool.pyright]
+[tool.basedpyright]
+include = ["my_addon"]
+exclude = ["**/__pycache__"]
+# stubPath = "stubs" # useful if you need to add extra type stubs
+reportUnusedCallResult = "none"
+reportImplicitOverride = "none"
+reportInvalidTypeForm = "none"
+# Determines what basedpyright will report as errors
+# Valid options: off | basic | standard | strict | all
+# If standard is too strict for your liking, try "basic"
+typeCheckingMode = "standard"
+
+# Extracts the version from my_addon/__init__.py
+# This is simply a convenience so that you don't need to define the version
+# number in two different places (in your code and here).
+# If you prefer, you can remove this section and replace the line
+# in the [project] section `dynamic = ["version"]` with `version = "0.0.1"`
+# but you need to remember to update the version number in both places.
 [tool.hatch.version]
 source = "code"
 path = "my_addon/__init__.py"
@@ -34,30 +76,3 @@ expression = "'.'.join([str(v) for v in bl_info['version']])"
 
 [tool.uv]
 managed = true
-dev-dependencies = [
-  # adds type stubs for the bpy module for LSP support in your editor
-  # see https://github.com/nutti/fake-bpy-module
-  "fake-bpy-module-latest",
-
-  # for blender.nvim
-  "pynvim",
-  "debugpy", # Optional, for debugging
-
-  # for blender_vscode
-  # "flask",
-  # "requests",
-  # "debugpy",
-
-  # For building the add-on
-  "hatchling",
-]
-
-# These basedpyright settings work better for Blender add-ons.
-[tool.basedpyright]
-include = ["my_addon"]
-exclude = ["**/__pycache__"]
-# stubPath = "stubs"
-reportUnusedCallResult = "none"
-reportImplicitOverride = "none"
-reportInvalidTypeForm = "none"
-typeCheckingMode = "standard" # off | basic | standard | strict | all
