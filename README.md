@@ -46,6 +46,6 @@ This will create a zip file in the `dist` directory which users can install in B
 
 ## License
 
-Blender Add-on Template &copy; 2024 Maddison Hellstrom
+Blender Add-on Template &copy; 2024 Maddison Cohodas
 
 GNU General Public License v2.0 or later
